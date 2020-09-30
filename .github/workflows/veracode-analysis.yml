@@ -35,9 +35,10 @@ jobs:
     # build the project
    # - name: Build the project
     - run: mvn package --file $GITHUB_WORKSPACE/pom.xml
+   # what directory does it build the maven package to? 
    # - name: Submit built project to pipeline scan
-    - run: java -Dpipeline.debug=true -jar pipeline-scan.jar --veracode_api_id "${{secrets.VERACODE_API_ID}}" --veracode_api_key "${{secrets.VERACODE_API_KEY}}" --fail_on_severity="Very High, High" --file "$HOME/verademo.war"
-      continue-on-error: true
+    - run: java -Dpipeline.debug=true -jar pipeline-scan.jar --veracode_api_id "${{secrets.VERACODE_API_ID}}" --veracode_api_key "${{secrets.VERACODE_API_KEY}}" --fail_on_severity="Very High, High" --file "target/verademo.war"
+      continue-on-error: false
     - uses: actions/upload-artifact@v1
       with:
         name: ScanResults
