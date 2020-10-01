@@ -37,5 +37,5 @@ jobs:
         uses: mavrosxristoforos/get-xml-info@1.0
         with:
             xml-file: 'pom.xml'
-            xpath: '/project/artifactId/text()'
+            xpath: '/project[@xmlns="http://maven.apache.org/POM/4.0.0"]/artifactId/text()'
       - run: echo ${{ steps.getxml.outputs.info }}
