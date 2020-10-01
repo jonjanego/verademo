@@ -17,26 +17,27 @@ jobs:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     steps:
-     # - name: Get the project ready
+    - name: Get the project ready
     - uses: actions/checkout@v1
       
-     #  - name: Download and unzip the latest pipeline scan JAR
+    - name: Download and unzip the latest pipeline scan JAR
     - uses: wei/curl@master
       with:
         args: -O https://downloads.veracode.com/securityscan/pipeline-scan-LATEST.zip
     - run: unzip -o pipeline-scan-LATEST.zip
     
 
-   # - name: Setup Java
+    - name: Setup Java
     - uses: actions/setup-java@v1
       with:
         java-version: 1.8
         
     # build the project
-   # - name: Build the project
+    - name: Build the project
     - run: mvn package --file $GITHUB_WORKSPACE/pom.xml
-   # what directory does it build the maven package to? 
-   # - name: Submit built project to pipeline scan
+    
+    # Submit
+    - name: Submit  project to pipeline scan
     - run: java -jar pipeline-scan.jar --veracode_api_id "${{secrets.VERACODE_API_ID}}" --veracode_api_key "${{secrets.VERACODE_API_KEY}}" --fail_on_severity="Very High, High" --file "target/verademo.war"
       continue-on-error: true
     - uses: actions/upload-artifact@v1
