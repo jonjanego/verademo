@@ -37,5 +37,5 @@ jobs:
         uses: mavrosxristoforos/get-xml-info@1.0
         with:
             xml-file: 'pom.xml'
-            xpath: '//artifactId'
+            xpath: '/project/artifactId'
       - run: echo ${{ steps.getxml.outputs.info }}
