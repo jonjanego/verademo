@@ -36,6 +36,6 @@ jobs:
       - name: Get XML Info
         uses: mavrosxristoforos/get-xml-info@1.0
         with:
-            xml-file: $GITHUB_WORKSPACE/pom.xml
+            xml-file: 'pom.xml'
             xpath: '//artifactId'
       - run: echo ${{ steps.getxml.outputs.info }}
