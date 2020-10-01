@@ -33,7 +33,7 @@ jobs:
     # build the project and move it to a staging directory
     - run: mvn package --file $GITHUB_WORKSPACE/pom.xml
     # copy build output to a 'staging' directory and define a variable with the project name
-    - run: mkdir staging && cp target/*.war
+    - run: mkdir staging && cp target/*.war staging
       
     
     #  Submit  project to pipeline scan
