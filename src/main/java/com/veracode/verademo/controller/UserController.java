@@ -315,7 +315,7 @@ public class UserController {
 			Statement statement = connect.createStatement();
 			ResultSet result = statement.executeQuery(sql);
 			if (result.first()) {
-				model.addAttribute("error", "Username '" + username + "' already exists!");
+				model.addAttribute("error", "Username already exists!");
 				return "register";
 			}
 			else {
