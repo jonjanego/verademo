@@ -11,7 +11,7 @@
 
 	<!-- Component Version Properties -->
 	<properties>
-		<spring.version>4.3.10.RELEASE</spring.version>
+		<spring.version>6.1.14</spring.version>
 		<fileupload.version>1.5</fileupload.version>
 		  <sonar.organization>jonjanego</sonar.organization>
   		  <sonar.host.url>https://sonarcloud.io</sonar.host.url>
